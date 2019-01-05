@@ -1,0 +1,17 @@
+{% extends 'dappx/base.html' %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Войти :</h1>
+<form method="post" action="{% url 'dappx:user_login' %}">
+          {% csrf_token %}
+          {# A more "HTML" way of creating the login form#}
+          <label for="username">Номер кошелька:</label>
+          <input type="text" name="username" placeholder="Введите номер кошелька">
+		  <label for="password">Пароль:</label>
+          <input type="password" name="password" placeholder="Введите пароль">
+<input type="submit" name="" value="Подтвердить">
+</form>
+</div>
+  </div>
+{% endblock %}

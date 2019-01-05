@@ -1,0 +1,25 @@
+{% extends "dappx/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+        <h1>Выбери свой портфель</h1>
+        <h3>И заполни все поля</h3>
+<form method="post" action="{% url 'dappx:register' %}">
+          {% csrf_token %}
+          {# A more "HTML" way of creating the login form#}
+          <label for="username">Кошелёк:</label>
+          <input type="text" name="username" placeholder="Введите номер">
+          <label for="pack">Пакет инвестирования:</label>
+          <input type="text" name="pack" placeholder="Введите наименование пакета">
+<label for="password">Пароль:</label>
+          <input type="password" name="password" placeholder="Придумайте пароль">
+<input type="submit" name="" value="Отправить данные">
+</form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
